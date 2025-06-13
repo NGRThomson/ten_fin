@@ -31,7 +31,7 @@ models:
         description: "Flag indicating if customer has opted in for email tracking (yes/no)"
         tests:
           - accepted_values:
-              values: ['yes', 'no']
+              values: [true, false]
 
   - name: stg_email_activity
     description: "Staging table for email activity events with cleaned data"
