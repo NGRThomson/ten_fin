@@ -54,4 +54,28 @@ Note:
 
 ## Running the models
 
+I have left a PR available with a few notes regarding my implementation. This just makes it easier to review my code.
+https://github.com/NGRThomson/ten_fin_nt_tht/pull/1
+
+
 Detail your instructions here.
+
+```bash
+# 1. Repository setup - Clone the repository and navigate to it
+git clone https://github.com/NGRThomson/ten_fin_nt_tht.git
+cd ten_fin_nt
+
+# 2. Python environment setup - Create and activate virtual environment
+python3 -m venv .venv 
+source .venv/bin/activate 
+
+# 3. Dependencies installation
+pip install -r requirements.txt 
+
+# 4. DBT operations - Validate configuration and build models
+dbt debug 
+dbt build 
+
+# 5. Open Duckdb to view results
+duckdb data/ten_fin_db.duckdb -ui
+
