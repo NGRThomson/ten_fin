@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: main
+    database: ten_fin_db
+    tables:
+      - name: email_activity
+      - name: customer_profiles

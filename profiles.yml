@@ -1,0 +1,6 @@
+ten_fin:
+  target: prod
+  outputs:
+    prod:
+      type: duckdb
+      path: './data/ten_fin_db.duckdb'
