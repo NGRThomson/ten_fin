@@ -61,8 +61,8 @@ Detail your instructions here.
 
 ```bash
 # 1. Repository setup - Clone the repository and navigate to it
-git clone https://github.com/NGRThomson/ten_fin_nt_tht.git
-cd ten_fin_nt
+git clone https://github.com/NGRThomson/ten_fin_tht_nt.git
+cd ten_fin_tht_nt
 
 # 2. Python environment setup - Create and activate virtual environment
 python3 -m venv .venv 
