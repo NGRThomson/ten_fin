@@ -55,8 +55,7 @@ Note:
 ## Running the models
 
 I have left a PR available with a few notes regarding my implementation. This just makes it easier to review my code.
-https://github.com/NGRThomson/ten_fin_nt_tht/pull/1
-
+https://github.com/NGRThomson/ten_fin_tht_nt/pull/1
 
 Detail your instructions here.
 
