@@ -3,7 +3,8 @@ ten_fin:
   outputs:
     prod:
       type: duckdb
-      path: './data/ten_fin_db_prod.duckdb'
+      path: 'md:ten_fin'
+      token: env_var('MOTHERDUCK_TOKEN')
     dev:
       type: duckdb
       path: './data/ten_fin_db_dev.duckdb'

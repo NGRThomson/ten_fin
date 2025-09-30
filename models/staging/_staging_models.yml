@@ -2,7 +2,6 @@ version: 2
 
 sources:
   - name: main
-    database: ten_fin_db
     description: Main database containing raw customer and email activity data
     tables:
       - name: email_activity
