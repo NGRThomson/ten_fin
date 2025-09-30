@@ -24,8 +24,9 @@ jobs:
           dbt build --target prod
         env:
           DBT_PROFILES_DIR: .
+          MOTHERDUCK_TOKEN: ${{ secrets.MOTHERDUCK_TOKEN }}
       - name: Archive dbt artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dbt-artifacts-base
           path: |
