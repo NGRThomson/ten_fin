@@ -25,6 +25,7 @@ jobs:
           dbt build --target prod
         env:
           DBT_PROFILES_DIR: .
+          # Ensure MOTHERDUCK_TOKEN is set in your repository secrets or remove the line below if not needed
           MOTHERDUCK_TOKEN: ${{ secrets.MOTHERDUCK_TOKEN }}
       - name: Archive dbt artifacts
         uses: actions/upload-artifact@v4
