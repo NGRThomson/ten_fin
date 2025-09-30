@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -21,6 +22,7 @@ jobs:
           pip install dbt-duckdb
       - name: Run dbt
         run: |
+          echo "MOTHERDUCK_TOKEN is set: ${{ secrets.MOTHERDUCK_TOKEN != '' }}"
           dbt deps
           dbt build --target prod
         env:
