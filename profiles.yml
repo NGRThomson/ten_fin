@@ -3,4 +3,7 @@ ten_fin:
   outputs:
     prod:
       type: duckdb
-      path: './data/ten_fin_db.duckdb'
+      path: './data/ten_fin_db_prod.duckdb'
+    dev:
+      type: duckdb
+      path: './data/ten_fin_db_dev.duckdb'

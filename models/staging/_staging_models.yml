@@ -3,50 +3,52 @@ version: 2
 sources:
   - name: main
     database: ten_fin_db
-    description: "Main database containing raw customer and email activity data"
+    description: Main database containing raw customer and email activity data
     tables:
       - name: email_activity
-        description: "Raw email activity events including opens, deliveries, and bounces"
+        description: Raw email activity events including opens, deliveries, and bounces
+        columns:
+          - name: event_time
+            description: ''
+            config:
+              meta: {}
+              tags: []
+          - name: email
+            description: ''
+            config:
+              meta: {}
+              tags: []
+          - name: event
+            description: ''
+            config:
+              meta: {}
+              tags: []
       - name: customer_profiles
-        description: "Raw customer profile data including contact and preference information"
+        description: Raw customer profile data including contact and preference information
 
-models:
-  - name: stg_customer_profiles
-    description: "Staging table for customer profiles with cleaned and standardized data"
-    columns:
-      - name: name
-        description: "Customer's full name"
-      - name: country
-        description: "Customer's country of residence"
-        tests:
-          - not_null
-      - name: modified_at
-        description: "Timestamp when the customer profile was last modified"
-      - name: email
-        description: "Customer's email address"
-        tests:
-          - unique
-          - not_null
-      - name: allow_email_tracking
-        description: "Flag indicating if customer has opted in for email tracking (yes/no)"
-        tests:
-          - accepted_values:
-              values: [true, false]
-
-  - name: stg_email_activity
-    description: "Staging table for email activity events with cleaned data"
-    columns:
-      - name: event_time
-        description: "Timestamp when the email event occurred"
-        tests:
-          - not_null
-      - name: event
-        description: "Type of email event (open, delivered, bounced)"
-        tests:
-          - not_null
-          - accepted_values:
-              values: ['open', 'delivered', 'bounced']
-      - name: email
-        description: "Customer's email address"
-        tests:
-          - not_null
+        columns:
+          - name: email
+            description: ''
+            config:
+              meta: {}
+              tags: []
+          - name: name
+            description: ''
+            config:
+              meta: {}
+              tags: []
+          - name: country
+            description: ''
+            config:
+              meta: {}
+              tags: []
+          - name: allow_email_tracking
+            description: ''
+            config:
+              meta: {}
+              tags: []
+          - name: modified_at
+            description: ''
+            config:
+              meta: {}
+              tags: []

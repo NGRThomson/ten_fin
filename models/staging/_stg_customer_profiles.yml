@@ -1,0 +1,39 @@
+version: 2
+models:
+  - name: stg_customer_profiles
+    description: Staging table for customer profiles with cleaned and standardized data
+    columns:
+      - name: name
+        description: Customer's full name
+        config:
+          meta: {}
+          tags: []
+      - name: country
+        description: Customer's country of residence
+        tests:
+          - not_null
+        config:
+          meta: {}
+          tags: []
+      - name: modified_at
+        description: Timestamp when the customer profile was last modified
+        config:
+          meta: {}
+          tags: []
+      - name: email
+        description: Customer's email address
+        tests:
+          - unique
+          - not_null
+        config:
+          meta: {}
+          tags: []
+      - name: allow_email_tracking
+        description: Flag indicating if customer has opted in for email tracking (yes/no)
+        tests:
+          - accepted_values:
+              values: [true, false]
+
+        config:
+          meta: {}
+          tags: []

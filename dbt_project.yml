@@ -12,6 +12,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   ten_fin:
+    +dbt-osmosis: "_{model}.yml"   # Default for entire project
     staging:
       +materialized: table
     marts:

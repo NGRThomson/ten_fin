@@ -2,26 +2,41 @@ version: 2
 
 models:
   - name: mart_email_opens_by_region
-    description: "Aggregated email metrics broken down by country/region"
+    description: Aggregated email metrics broken down by country/region
     columns:
       - name: country
-        description: "Country of the customer"
+        description: Country of the customer
         tests:
           - not_null
           - unique
+        config:
+          meta: {}
+          tags: []
       - name: opens
-        description: "Count of email open events for the country"
+        description: Count of email open events for the country
         tests:
           - not_null
+        config:
+          meta: {}
+          tags: []
       - name: unique_opens
-        description: "Count of distinct email addresses that have opened emails for the country"
+        description: Count of distinct email addresses that have opened emails for the country
         tests:
           - not_null
+        config:
+          meta: {}
+          tags: []
       - name: delivered
-        description: "Count of email delivery events for the country"
+        description: Count of email delivery events for the country
         tests:
           - not_null
+        config:
+          meta: {}
+          tags: []
       - name: bounced
-        description: "Count of email bounce events for the country"
+        description: Count of email bounce events for the country
         tests:
           - not_null
+        config:
+          meta: {}
+          tags: []

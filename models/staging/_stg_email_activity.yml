@@ -1,0 +1,28 @@
+version: 2
+models:
+  - name: stg_email_activity
+    description: Staging table for email activity events with cleaned data
+    columns:
+      - name: event_time
+        description: Timestamp when the email event occurred
+        tests:
+          - not_null
+        config:
+          meta: {}
+          tags: []
+      - name: event
+        description: Type of email event (open, delivered, bounced)
+        tests:
+          - not_null
+          - accepted_values:
+              values: [open, delivered, bounced]
+        config:
+          meta: {}
+          tags: []
+      - name: email
+        description: Customer's email address
+        tests:
+          - not_null
+        config:
+          meta: {}
+          tags: []
