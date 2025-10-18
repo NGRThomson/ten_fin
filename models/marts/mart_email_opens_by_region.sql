@@ -36,6 +36,7 @@ email_opens_by_region AS (
         COUNT(CASE WHEN event = 'delivered' THEN 1 END) AS delivered,
         COUNT(CASE WHEN event = 'bounced' THEN 1 END) AS bounced,
         ROUND(COUNT(CASE WHEN event = 'open' THEN 1 END) * 100.0 / NULLIF(COUNT(CASE WHEN event = 'delivered' THEN 1 END), 0), 2) AS open_rate_pct
+        ROUND(COUNT(DISTINCT CASE WHEN event = 'open' THEN 1 END) * 100.0 / NULLIF(COUNT(CASE WHEN event = 'delivered' THEN 1 END), 0), 2) AS dist_open_rate_pct
     FROM joined_email_activity
     GROUP BY country
 )
