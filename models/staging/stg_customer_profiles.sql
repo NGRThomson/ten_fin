@@ -21,7 +21,7 @@ customer_profiles_cleaned AS (
             WHEN allow_email_tracking = 'yes' THEN TRUE
             ELSE FALSE
         END AS allow_email_tracking,
-        null as new,,
+        null as new,,,
     FROM customer_profiles
 )
 
