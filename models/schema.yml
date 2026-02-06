@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: stg__customer_profiles
+    description: Staged customer profile data with standardized email addresses and boolean allow_email_tracking flag
+    columns:
+      - name: name
+        description: Customer full name
+        tests:
+          - not_null
+      - name: email
+        description: Standardized email address (trimmed and lowercased)
+        tests:
+          - not_null
+          - unique
+      - name: country
+        description: Customer country
+        tests:
+          - not_null
+      - name: allow_email_tracking
+        description: Boolean flag indicating if customer has opted in to email tracking
+      - name: modified_at
+        description: Timestamp of last modification
+
+  - name: stg_email_activity
+    description: Staged email activity events with standardized email addresses
+    columns:
+      - name: event_time
+        description: Timestamp when the event occurred
+        tests:
+          - not_null
+      - name: event
+        description: Type of email event (open, delivered, bounced, etc.)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['open', 'delivered', 'bounced', 'clicked', 'sent']
+      - name: email
+        description: Standardized email address (trimmed and lowercased)
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg__customer_profiles')
+              field: email
+
+  - name: mart_email_opens_by_region
+    description: Aggregated email metrics by region and country
+    columns:
+      - name: region
+        description: Geographic region grouping
+        tests:
+          - not_null
+      - name: country
+        description: Customer country
+        tests:
+          - not_null
+      - name: opens
+        description: Total number of email opens
+      - name: unique_opens
+        description: Number of unique recipients who opened emails
+      - name: delivered
+        description: Total number of emails delivered
+      - name: unique_delivered
+        description: Number of unique recipients who received emails
+      - name: bounced
+        description: Total number of bounced emails
+      - name: open_rate_pct
+        description: Percentage of delivered emails that were opened
+      - name: unique_open_rate_pct
+        description: Percentage of unique delivered recipients who opened emails
+      - name: bounce_rate_pct
+        description: Percentage of emails that bounced
